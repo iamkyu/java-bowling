@@ -16,9 +16,6 @@ public class ConsoleInputView {
 
     public static int getKnockDownPins(int frame) {
         System.out.print(String.format(ASK_KNOCK_DOWN_PINS_MESSAGE_FORMAT, frame));
-        int pins = scanner.nextInt();
-        scanner.nextLine();
-
-        return pins;
+        return scanner.nextInt();
     }
 }

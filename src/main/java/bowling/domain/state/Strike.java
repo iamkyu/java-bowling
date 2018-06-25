@@ -1,12 +1,11 @@
 package bowling.domain.state;
 
-import bowling.domain.ExceedException;
+import bowling.domain.MaximumRollExceededException;
 
 public class Strike implements State {
-
     @Override
     public State roll(int pins) {
-        throw new ExceedException();
+        throw new MaximumRollExceededException();
     }
 
     @Override
@@ -22,5 +21,10 @@ public class Strike implements State {
     @Override
     public boolean canRoll() {
         return true;
+    }
+
+    @Override
+    public String getScoreBySymbol() {
+        return "X";
     }
 }

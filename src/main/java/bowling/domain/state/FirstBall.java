@@ -1,26 +1,22 @@
 package bowling.domain.state;
 
 public class FirstBall implements State {
+    private int firstRoll;
 
-    private int pins;
-    private int firstShotPins;
-
-    public FirstBall(int firstShotPins) {
-        this.firstShotPins = firstShotPins;
-        this.pins = firstShotPins;
+    public FirstBall(int firstRoll) {
+        this.firstRoll = firstRoll;
+        this.pins = firstRoll;
     }
 
     @Override
     public State roll(int pins) {
-        int tmp = pins; //FIXME
-
         this.pins += pins;
 
         if (isKnockDownAll()) {
-            return new Spare(firstShotPins, tmp);
+            return new Spare(firstRoll, 10 - firstRoll);
         }
 
-        return new Miss(firstShotPins, tmp);
+        return new Miss(firstRoll, 10 - firstRoll);
     }
 
     @Override
@@ -36,5 +32,11 @@ public class FirstBall implements State {
     @Override
     public boolean canRoll() {
         return false;
+    }
+
+    @Override
+    public String getScoreBySymbol() {
+        String first = firstRoll == 0 ? "-" : String.valueOf(firstRoll);
+        return String.format("%s", first);
     }
 }

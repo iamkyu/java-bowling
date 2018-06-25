@@ -1,9 +1,8 @@
 package bowling.domain.state;
 
-import bowling.domain.ExceedException;
+import bowling.domain.MaximumRollExceededException;
 
 public class Miss implements State {
-
     private final int firstShotPins;
     private final int secondShotPins;
 
@@ -14,7 +13,7 @@ public class Miss implements State {
 
     @Override
     public State roll(int pins) {
-        throw new ExceedException();
+        throw new MaximumRollExceededException();
     }
 
     @Override
@@ -30,5 +29,13 @@ public class Miss implements State {
     @Override
     public boolean canRoll() {
         return true;
+    }
+
+    @Override
+    public String getScoreBySymbol() {
+        String first = firstShotPins == 0 ? "-" : String.valueOf(firstShotPins);
+        String second = firstShotPins == 0 ? "-" : String.valueOf(secondShotPins);
+
+        return String.format("%s|%s", first, second);
     }
 }

@@ -1,15 +1,10 @@
 package bowling.domain;
 
-import bowling.domain.state.Miss;
 import bowling.domain.state.Ready;
-import bowling.domain.state.Spare;
 import bowling.domain.state.State;
-import bowling.domain.state.Strike;
 
-public class Frame implements Presentable {
-
+public class Frame {
     private final int id;
-
     private State state;
 
     public Frame(int id) {
@@ -29,24 +24,11 @@ public class Frame implements Presentable {
         return state.canRoll();
     }
 
-    public int getFrameid() {
+    public int getFrameId() {
         return id;
     }
 
-    @Override
-    public String getFrameScoreByString() {
-
-
-        // FIXME 악취...
-
-        if (state instanceof Strike) {
-            return "X";
-        } else if (state instanceof Spare) {
-            return state.getPins() + "/";
-        } else if (state instanceof Miss) {
-            return String.valueOf(state.getPins());
-        } else {
-            return String.valueOf(state.getPins());
-        }
+    public String getScoreBySymbol() {
+        return state.getScoreBySymbol();
     }
 }

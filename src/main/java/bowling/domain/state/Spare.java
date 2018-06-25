@@ -1,20 +1,19 @@
 package bowling.domain.state;
 
-import bowling.domain.ExceedException;
+import bowling.domain.MaximumRollExceededException;
 
 public class Spare implements State {
-
     private final int firstShotPins;
-    private final int pins;
+    private final int secondShotPins;
 
-    public Spare(int firstShotPins, int pins) {
+    public Spare(int firstShotPins, int secondShotPins) {
         this.firstShotPins = firstShotPins;
-        this.pins = pins;
+        this.secondShotPins = secondShotPins;
     }
 
     @Override
     public State roll(int pins) {
-        throw new ExceedException();
+        throw new MaximumRollExceededException();
     }
 
     @Override
@@ -24,11 +23,16 @@ public class Spare implements State {
 
     @Override
     public int getPins() {
-        return pins;
+        return secondShotPins;
     }
 
     @Override
     public boolean canRoll() {
         return true;
+    }
+
+    @Override
+    public String getScoreBySymbol() {
+        return String.format("%d|/", firstShotPins);
     }
 }

@@ -4,21 +4,26 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Game {
+    public static final int GAME_END_FRAME = 10;
 
-    private List<Frame> frames = new ArrayList<>();
-
-    private int currentFrame = 1;
-    private Frame frame = new Frame(currentFrame);
+    private List<Frame> frames;
+    private int currentFrame;
+    private Frame frame;
 
     public Game() {
+        currentFrame = 1;
+        frame = new Frame(currentFrame);
+
+        frames = new ArrayList<>();
         frames.add(frame);
     }
 
     public void roll(int pins) {
+        frame.roll(pins);
+
         if (frame.isEndFrame()) {
             setNextFrame();
         }
-        frame.roll(pins);
     }
 
     private void setNextFrame() {
@@ -42,5 +47,17 @@ public class Game {
 //        return frames.stream()
 //                .mapToInt(Frame::getScore)
 //                .sum();
+    }
+
+    public int getCurrentFrame() {
+        return currentFrame;
+    }
+
+    public List<Frame> getFrames() {
+        return frames;
+    }
+
+    public boolean isGameEnd() {
+        return GAME_END_FRAME == currentFrame;
     }
 }
