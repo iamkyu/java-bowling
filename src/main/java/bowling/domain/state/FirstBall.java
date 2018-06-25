@@ -11,7 +11,7 @@ public class FirstBall implements State {
         pins.knockDown(knockDownPins);
 
         if (pins.isKnockDownAll()) {
-            return new Spare(firstRoll, 10 - firstRoll);
+            return new Spare(pins.get(0), pins.get(1));
         }
 
         return new Miss(firstRoll, 10 - firstRoll);

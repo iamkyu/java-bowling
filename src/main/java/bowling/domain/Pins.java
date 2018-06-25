@@ -8,7 +8,7 @@ public class Pins implements Presentable {
     private List<Integer> knockDowns = new ArrayList<>(2);
 
     public void knockDown(int pins) {
-        if (pins >= MAX_PINS) {
+        if (isKnockDownAll(pins)) {
             knockDowns.add(MAX_PINS);
             return;
         }
@@ -22,8 +22,28 @@ public class Pins implements Presentable {
         knockDowns.add(pins);
     }
 
+    public int get(int index) {
+        if (index > knockDowns.size()) {
+            throw new IndexOutOfBoundsException();
+        }
+
+        int pin;
+
+        try {
+            pin = knockDowns.get(index);
+        } catch (Exception e) {
+            pin = 0;
+        }
+
+        return pin;
+    }
+
     public boolean isKnockDownAll() {
-        return MAX_PINS == getKnockDownPins();
+        return isKnockDownAll(getKnockDownPins());
+    }
+
+    private boolean isKnockDownAll(int pins) {
+        return MAX_PINS == pins;
     }
 
     public int getKnockDownPins() {
