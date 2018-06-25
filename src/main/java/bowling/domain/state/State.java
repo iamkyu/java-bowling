@@ -8,11 +8,17 @@ public interface State {
 
     State roll(int knockDownPins) throws MaximumRollExceededException;
 
-    boolean isKnockDownAll();
-
-    int getPins();
-
     boolean canRoll();
 
-    String getScoreBySymbol();
+    default boolean isKnockDownAll() {
+        return pins.isKnockDownAll();
+    }
+
+    default int getPins() {
+        return pins.getKnockDownPins();
+    }
+
+    default String getScoreBySymbol() {
+        return pins.getSymbol();
+    }
 }

@@ -14,22 +14,7 @@ public class Ready implements State {
     }
 
     @Override
-    public boolean isKnockDownAll() {
-        return pins.isKnockDownAll();
-    }
-
-    @Override
-    public int getPins() {
-        return pins.getKnockDownPins();
-    }
-
-    @Override
     public boolean canRoll() {
-        return false;
-    }
-
-    @Override
-    public String getScoreBySymbol() {
-        return "";
+        return true;
     }
 }

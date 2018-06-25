@@ -21,7 +21,7 @@ public class Frame {
     }
 
     public boolean isEndFrame() {
-        return state.canRoll();
+        return !state.canRoll();
     }
 
     public int getFrameId() {
