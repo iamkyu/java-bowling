@@ -12,7 +12,7 @@ public class Spare implements State {
     }
 
     @Override
-    public State roll(int pins) {
+    public State roll(int knockDownPins) {
         throw new MaximumRollExceededException();
     }
 

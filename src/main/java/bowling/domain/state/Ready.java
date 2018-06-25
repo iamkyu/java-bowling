@@ -3,14 +3,14 @@ package bowling.domain.state;
 public class Ready implements State {
 
     @Override
-    public State roll(int pins) {
-        this.pins.knockDown(pins);
+    public State roll(int knockDownPins) {
+        this.pins.knockDown(knockDownPins);
 
         if (isKnockDownAll()) {
             return new Strike();
         }
 
-        return new FirstBall(pins);
+        return new FirstBall(knockDownPins);
     }
 
     @Override

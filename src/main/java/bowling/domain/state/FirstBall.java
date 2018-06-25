@@ -1,18 +1,16 @@
 package bowling.domain.state;
 
 public class FirstBall implements State {
-    private int firstRoll;
 
     public FirstBall(int firstRoll) {
-        this.firstRoll = firstRoll;
-        this.pins = firstRoll;
+        pins.knockDown(firstRoll);
     }
 
     @Override
-    public State roll(int pins) {
-        this.pins += pins;
+    public State roll(int knockDownPins) {
+        pins.knockDown(knockDownPins);
 
-        if (isKnockDownAll()) {
+        if (pins.isKnockDownAll()) {
             return new Spare(firstRoll, 10 - firstRoll);
         }
 

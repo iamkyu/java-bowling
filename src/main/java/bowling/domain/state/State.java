@@ -6,7 +6,7 @@ import bowling.domain.Pins;
 public interface State {
     Pins pins = new Pins();
 
-    State roll(int pins) throws MaximumRollExceededException;
+    State roll(int knockDownPins) throws MaximumRollExceededException;
 
     boolean isKnockDownAll();
 
