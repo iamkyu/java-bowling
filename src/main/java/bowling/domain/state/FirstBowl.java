@@ -33,7 +33,7 @@ public class FirstBowl implements State {
 
     @Override
     public String getScore() {
-        return knockDownsPins.getSymbol();
+        return knockDownsPins.getString();
     }
 
     @Override

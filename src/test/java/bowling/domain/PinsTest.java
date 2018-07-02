@@ -42,7 +42,7 @@ public class PinsTest {
         pins.knockDown(3);
 
         //then
-        assertThat(pins.getSymbol()).isEqualTo("3");
+        assertThat(pins.getString()).isEqualTo("3");
     }
 
     @Test
@@ -52,7 +52,7 @@ public class PinsTest {
         pins.knockDown(3);
 
         //then
-        assertThat(pins.getSymbol()).isEqualTo("3|3");
+        assertThat(pins.getString()).isEqualTo("3|3");
     }
 
     @Test
@@ -61,7 +61,7 @@ public class PinsTest {
         pins.knockDown(10);
 
         //then
-        assertThat(pins.getSymbol()).isEqualTo("X");
+        assertThat(pins.getString()).isEqualTo("X");
     }
 
     @Test
@@ -71,6 +71,6 @@ public class PinsTest {
         pins.knockDown(9);
 
         //then
-        assertThat(pins.getSymbol()).isEqualTo("1|/");
+        assertThat(pins.getString()).isEqualTo("1|/");
     }
 }

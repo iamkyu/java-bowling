@@ -1,6 +1,7 @@
 package bowling;
 
 import bowling.domain.Game;
+import bowling.domain.GeneralScoreRule;
 import bowling.domain.IllegalPlayerNameException;
 import bowling.domain.Player;
 import bowling.view.ConsoleInputView;
@@ -13,7 +14,7 @@ public class ConsoleMain {
 
         while (!game.isEnd()) {
             game.roll(ConsoleInputView.askKnockDownPins(game.getCurrentFrame()));
-            ConsoleOutputView.print(player, game.getFrames());
+            ConsoleOutputView.print(player, game.getFrames(), new GeneralScoreRule());
         }
     }
 

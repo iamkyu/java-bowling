@@ -27,7 +27,7 @@ public class Strike implements State {
 
     @Override
     public String getScore() {
-        return knockDownsPins.getSymbol();
+        return knockDownsPins.getString();
     }
 
     @Override

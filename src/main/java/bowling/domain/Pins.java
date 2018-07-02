@@ -40,7 +40,7 @@ public class Pins implements Presentable {
     }
 
     @Override
-    public String getSymbol() {
+    public String getString() {
         List<String> symbols;
 
         if (knockDowns.size() == 1 && isKnockDownAll()) {

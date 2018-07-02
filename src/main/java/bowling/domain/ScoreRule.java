@@ -1,22 +1,18 @@
 package bowling.domain;
 
+import java.util.List;
+
+
+/**
+ * 스코어룰은 변경 가능성이 있음.<br>
+ * 예를 들어,
+ * <br>
+ * 1. 전통적인 점수 계산법과<br>
+ * 2. 2016 월드볼링에서 새로 도입 된 커런트 프레임 스코어링 (Current Frame Scoring)
+ */
 public interface ScoreRule {
-    //    public int getScore() {
-    //        int score = 0;
-    //
-    //        for (int i = 0; i < frames.size(); i++) {
-    //            if (frames.get(i).getScore() == 10) {
-    //                score += frames.get(i).getScore() + frames.get(i + 1).getScore();
-    //            } else {
-    //                score += frames.get(i).getScore();
-    //            }
-    //        }
-    //
-    //        return score;
-    //
-    ////        return frames.stream()
-    ////                .mapToInt(Frame::getScore)
-    ////                .sum();
-    //    }
-    //
+
+    List<Integer> calculateScore(List<Frame> frames);
+
 }
+
